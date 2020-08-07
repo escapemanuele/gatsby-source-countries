@@ -1,14 +1,27 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
-// You can delete this file if you're not using it
+const fetch = require('node-fetch');
 
-/**
- * You can uncomment the following line to verify that
- * your plugin is being loaded in your site.
- *
- * See: https://www.gatsbyjs.org/docs/creating-a-local-plugin/#developing-a-local-plugin-that-is-outside-your-project
- */
-exports.onPreInit = () => console.log("Loaded gatsby-starter-plugin")
+exports.sourceNodes = async ({
+    actions,
+    createNodeId,
+    createContentDigest
+}) => {
+    const NODE_TYPE = 'Country';
+    const API = `https://restcountries.eu/rest/v2`
+
+    const response = await fetch(API);
+
+    const countries = await response.json();
+    countries.forEach((country) => {
+        actions.createNode({
+            ...country,
+            id: createNodeId(`${NODE_TYPE}-${country.numericCode}`),
+            parent: null,
+            children: [],
+            internal: {
+                type: NODE_TYPE,
+                content: JSON.stringify(country),
+                contentDigest: createContentDigest(country)
+            }
+        });
+    })
+}
