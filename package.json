@@ -13,7 +13,7 @@
     "countries",
     "nations"
   ],
-  "author": "Kyle Gill <kyle.robert.gill@gmail.com>",
+  "author": "Emanuele Buccelli <escapemanuele@gmail.com>",
   "license": "0BSD",
   "dependencies": {
     "node-fetch": "^2.6.0"
