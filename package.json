@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-plugin",
+  "name": "gatsby-source-countries",
   "version": "1.0.0",
-  "description": "A minimal boilerplate for the essential files Gatsby looks for in a plugin",
+  "description": "A source plugin to get all the World countries",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,9 @@
   },
   "keywords": [
     "gatsby",
-    "gatsby-plugin"
+    "gatsby-plugin",
+    "countries",
+    "nations"
   ],
   "author": "Kyle Gill <kyle.robert.gill@gmail.com>",
   "license": "0BSD",
